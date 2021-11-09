@@ -1,6 +1,9 @@
 import React from "react";
+import { useAuthContext } from "@asgardeo/auth-react";
 
 export const Header = (props:any) => {
+
+  const { signIn } = useAuthContext();
 
   return (
     <header id='header'>
@@ -15,6 +18,7 @@ export const Header = (props:any) => {
                 </h1>
                 <p>{props.data ? props.data.paragraph : 'Loading'}</p>
                 <button
+                  onClick={ () => signIn() }
                   className='btn btn-custom btn-lg'
                 >
                   Log In

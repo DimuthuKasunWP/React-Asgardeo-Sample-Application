@@ -1,13 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import LandingPage from './pages/Landing';
+import HomePage from './pages/Home';
+import NotFoundPage from './pages/NotFound';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
+import * as authConfig from "./config.json";
+import { AuthProvider, SecureRoute, useAuthContext } from "@asgardeo/auth-react";
+
+const SecureRedirect = (props) => {
+  const { component, path } = props;
+  const { signIn } = useAuthContext();
+
+  const callback = () => {
+    signIn();
+  };
+
+  return (<SecureRoute exact path={path} component={component} callback={callback} />);
+};
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <AuthProvider config={authConfig.default}>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <SecureRedirect exact path="/home" component={HomePage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </Router>
+  </AuthProvider>,
   document.getElementById('root')
 );
 
