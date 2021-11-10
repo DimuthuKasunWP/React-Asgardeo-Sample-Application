@@ -55,9 +55,9 @@ const HomePage = () => {
 
                     <h2 className="mb-0 mt-4">ID token</h2>
 
-                    <div className="row">
+                    <div className="row1">
                         {authenticateState?.idToken && (
-                            <div className="column">
+                            <div className="column1">
                                 <h5>
                                     <b>Encoded</b>
                                 </h5>

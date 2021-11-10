@@ -6,7 +6,7 @@ const NotFoundPage = () => {
     const history = useHistory();
 
     return (
-        <div>
+        <div className="center-text">
             <h3>
                 Oops .. Page not found
             </h3>

@@ -23,5 +23,59 @@ export const JsonData = {
             "author": "Chanaka Fernando",
             "label": " Data Owner: "
         }
-    }
+    },
+    "Bottom":[
+        {
+          "icon": "fa fa-wordpress",
+          "name": "Lorem ipsum dolor",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        },
+        {
+          "icon": "fa fa-cart-arrow-down",
+          "name": "Consectetur adipiscing",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        },
+        {
+          "icon": "fa fa-cloud-download",
+          "name": "Lorem ipsum dolor",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        },
+        {
+          "icon": "fa fa-language",
+          "name": "Consectetur adipiscing",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        },
+        {
+          "icon": "fa fa-plane",
+          "name": "Lorem ipsum dolor",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        },
+        {
+          "icon": "fa fa-pie-chart",
+          "name": "Consectetur adipiscing",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+        }
+      ],
+      "Top": [
+        {
+          "icon": "fa fa-comments-o",
+          "title": "Lorem ipsum",
+          "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        },
+        {
+          "icon": "fa fa-bullhorn",
+          "title": "Lorem ipsum",
+          "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        },
+        {
+          "icon": "fa fa-group",
+          "title": "Lorem ipsum",
+          "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        },
+        {
+          "icon": "fa fa-magic",
+          "title": "Lorem ipsum",
+          "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+        }
+      ]
 }
