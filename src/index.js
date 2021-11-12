@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import * as authConfig from "./config.json";
 import { AuthProvider, SecureRoute, useAuthContext } from "@asgardeo/auth-react";
-import TestingHomePage from './pages/TestingHome';
+import Home from './pages/Home';
 
 const SecureRedirect = (props) => {
   const { component, path } = props;
@@ -24,7 +24,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <SecureRedirect exact path="/home" component={TestingHomePage} />
+        <SecureRedirect exact path="/home" component={Home} />
         <Route component={NotFoundPage} />
       </Switch>
     </Router>
