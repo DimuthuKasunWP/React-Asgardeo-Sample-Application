@@ -2,7 +2,7 @@ export const JsonData = {
 
     "Header": {
         "title": "React SPA With Asgardeo Authentication",
-        "paragraph": "Sample Demo Application With Asgardeo User Authentication. You Can Use this as Single Landing Page Application"
+        "paragraph": "Sample Demo Application With Asgardeo User Authentication. You Can Use This As a Single Page Application"
     },
     "About": {
         "paragraph": "Asgardeo is an IDaaS empowering developers to implement secure and frictionless access. Here’s our Early Adopter release - Start your journey today for free!",
