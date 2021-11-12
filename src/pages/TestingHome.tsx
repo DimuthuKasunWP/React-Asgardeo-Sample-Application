@@ -15,7 +15,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 const TestingHomePage = () => {
   const [configurationData, setConfigurationData] = useState<any>(authConfig);
 
-  const { state } = useAuthContext();
+  const { state, signOut } = useAuthContext();
   const history = useHistory();
 
   useEffect(() => {
@@ -32,7 +32,14 @@ const TestingHomePage = () => {
           <div>
             <TopSection  />
             <SecondTopSection  />
-            <div style={{background:"white",height:"100px"}}></div>
+            <div className="logout-btn" style={{background:"white",height:"100px"}}>
+            <button
+                  onClick={ () => signOut() }
+                  className='btn btn-custom btn-lg'
+                >
+                  Logout
+                </button>{' '}
+            </div>
           </div>
       }
     </div>
