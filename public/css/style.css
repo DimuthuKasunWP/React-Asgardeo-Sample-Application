@@ -78,13 +78,14 @@ p.intro {
   line-height: 24px;
 }
 a {
-  color: #608dfd;
+  color: #FF7300;
   font-weight: 400;
 }
 a:hover,
 a:focus {
   text-decoration: none;
-  color: #608dfd;
+  color: #FF7300;
+  text-decoration: underline;
 }
 ul,
 ol {
@@ -99,7 +100,7 @@ ol {
 hr {
   height: 2px;
   width: 70px;
-  text-align: center;
+  /*text-align: center;*/
   position: relative;
   background: #1e7a46;
   margin-bottom: 20px;
@@ -412,7 +413,7 @@ img.logoimage {
   width: 200px;
   margin-top: 100px;
 }
-
+*/
 code {
   background: #272822;
   padding: 4px;
@@ -425,25 +426,25 @@ code {
   display: block;
   word-break: break-all;
   padding: 20px;
-  text-align: left;
+  /*text-align: left;*/
 }
 
-.code .idtoken0 {
+.code .id-token-0 {
   color: #cc6633;
 }
 
-.code .idtoken1 {
+.code .id-token-1 {
   color: #f9f8f5;
 }
 
-.code .idtoken2 {
+.code .id-token-2 {
   color: #fd971f;
 }
 
 .row1 {
   width: 100%;
   display: flex;
-  text-align: left;
+  /*text-align: left;*/
 }
 
 .row1>.column1 {
@@ -471,7 +472,6 @@ code {
   margin-top: 50px;
   border-radius: 10px;
 }
-*/
 
 .json {
   text-align: left;

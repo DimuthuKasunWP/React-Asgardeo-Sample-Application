@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LandingPage from './pages/Landing';
-import HomePage from './pages/Home';
 import NotFoundPage from './pages/NotFound';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';

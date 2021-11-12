@@ -3,9 +3,8 @@ import { useHistory } from "react-router-dom";
 import ErrorPage from "./ClientIDMissingError";
 import SmoothScroll from "smooth-scroll";
 import authConfig from "../config.json";
-import { JsonData } from "../data/Data";
 import { useAuthContext } from "@asgardeo/auth-react";
-import { BottomSection } from "../components/Bottom";
+import { SecondTopSection } from "../components/second-top";
 import { TopSection } from "../components/Top";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
@@ -13,13 +12,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
   speedAsDuration: true,
 });
 
-interface DataJsonType {
-  Top: any;
-  Bottom: any;
-}
-
 const TestingHomePage = () => {
-  const [landingPageData, setLandingPageData] = useState<DataJsonType>(JsonData);
   const [configurationData, setConfigurationData] = useState<any>(authConfig);
 
   const { state } = useAuthContext();
@@ -37,8 +30,9 @@ const TestingHomePage = () => {
           <ErrorPage />
           :
           <div>
-            <TopSection data={landingPageData.Top} />
-            <BottomSection data={landingPageData.Bottom} />
+            <TopSection  />
+            <SecondTopSection  />
+            <div style={{background:"white",height:"100px"}}></div>
           </div>
       }
     </div>
