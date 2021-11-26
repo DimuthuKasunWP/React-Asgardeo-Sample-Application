@@ -5,7 +5,7 @@ import SmoothScroll from "smooth-scroll";
 import authConfig from "../config.json";
 import { useAuthContext } from "@asgardeo/auth-react";
 import { SecondTopSection } from "../components/second-top";
-import { TopSection } from "../components/Top";
+import { SCIMAPISection } from "../components/SCIMApiSample";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -30,7 +30,7 @@ const Home = () => {
           <ErrorPage />
           :
           <div>
-            <TopSection  />
+            <SCIMAPISection  />
             <SecondTopSection  />
             <div className="logout-btn" style={{background:"white",height:"100px"}}>
             <button
