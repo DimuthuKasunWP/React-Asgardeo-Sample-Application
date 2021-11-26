@@ -13,12 +13,15 @@ After cloning the files, you will have to run ```yarn``` followed by ```yarn sta
 ### 3. Change Running Port
 Default Running script ```npm start ``` will be execute as ```PORT=5000 react-script start ``` as mentioned in the package.json file. This command will work linux and Mac os and if you want to change the port on windows change the start script as ``` set PORT = 5000 react-script start ``` . 
 
-### 4. Add your own data 
-Change the data in the ```data.json``` file as well as add any images to ```public/img/```
-You can also change styles by modifying the ```public/css``` files.
+### 4. Add the Asgardeo Configurations
+Update asgardeo configurations in the ```src/config.json```.
 
-## Credits
-##### Free CSS 
-<a href="https://www.free-css.com/assets/files/free-css-templates/preview/page234/interact/">Free-CSS.com </a>
-
-##### Developed By : Dimuthu Kasun
+```
+{
+    "clientID": "",
+    "serverOrigin": "https://api.asgardeo.io/t/<org_name>",
+    "signInRedirectURL": "https://localhost:3000/home",
+    "signOutRedirectURL": "https://localhost:3000",
+    "scope": [ "openid","profile" ,"email", "internal_login"]
+}
+```
