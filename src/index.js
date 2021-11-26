@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import * as authConfig from "./config.json";
 import { AuthProvider, SecureRoute, useAuthContext } from "@asgardeo/auth-react";
 import Home from './pages/Home';
+import NetworkErrorPage from './pages/NetworkError';
 
 const SecureRedirect = (props) => {
   const { component, path } = props;
@@ -25,6 +26,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <SecureRedirect exact path="/home" component={Home} />
+        <Route path="/networkError" component={NetworkErrorPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </Router>

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthContext, HttpRequestConfig } from "@asgardeo/auth-react";
+import * as authConfig from "../config.json"
 import ReactJson from "react-json-view";
+import { useHistory } from "react-router-dom";
 
 export const SessionManagementAPISection = (props: any) => {
     const { state, httpRequest } = useAuthContext();
     const [sessionID, setSessionId] = useState<string>("");
     const [sessionsInfo, setSessionsInfo] = useState<any>({});
+    const history = useHistory();
 
 
     useEffect(() => {
@@ -24,49 +27,50 @@ export const SessionManagementAPISection = (props: any) => {
             },
             attachToken: true,
             method: "GET",
-            url: "https://api.asgardeo.io/t/dimuthuk1/api/users/v1/me/sessions"
+            url: authConfig.serverOrigin+"/api/users/v1/me/sessions"
         };
         httpRequest(requestConfig).then((response: any) => {
             setSessionsInfo(response.data);
 
         }).catch((error) => {
             console.log("request error: " + error);
-
+            history.push("/networkError");
         })
     }
 
     function terminateAllSessions() {
         const requestConfig: HttpRequestConfig = {
             method: "DELETE",
-            url: "https://api.asgardeo.io/t/dimuthuk1/api/users/v1/me/sessions"
+            url: authConfig.serverOrigin+"/api/users/v1/me/sessions"
         };
         httpRequest(requestConfig).then((response: any) => {
             if (response.status === 204){
-                window.location.reload();
+                getAllSessions();
                 setSessionId("");
                 alert("All authenticated sessions terminated successfully!");
             }
 
         }).catch((error) => {
             console.log("request error: " + error);
-
+            history.push("/networkError");
         })
 
     }
     function terminateSpecificSession(sessionID: string) {
         const requestConfig: HttpRequestConfig = {
             method: "DELETE",
-            url: "https://api.asgardeo.io/t/dimuthuk1/api/users/v1/me/sessions/" + sessionID
+            url: authConfig.serverOrigin+"/api/users/v1/me/sessions/" + sessionID
         };
         httpRequest(requestConfig).then((response: any) => {
             if (response.status === 204){
                 setSessionId("");
-                window.location.reload();
+                getAllSessions();
                 alert("session " + sessionID + " is successfully terminated!");
             }
 
         }).catch((error) => {
             console.log("request error: " + error);
+            history.push("/networkError");
 
         })
 

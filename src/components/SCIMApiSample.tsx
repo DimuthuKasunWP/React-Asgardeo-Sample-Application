@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthContext, HttpRequestConfig } from "@asgardeo/auth-react";
+import * as authConfig from "../config.json";
 import ReactJson from "react-json-view";
+import { useHistory } from "react-router-dom";
 
 export const SCIMAPISection = (props: any) => {
     const { state, httpRequest } = useAuthContext();
@@ -8,6 +10,7 @@ export const SCIMAPISection = (props: any) => {
     const [scimUserInfo, setScimUserInfo] = useState<any>({});
     const [country, setCountry] = useState<string>("");
     const [dob, setDateOfBirth] = useState<string>("");
+    const history= useHistory();
 
 
     useEffect(() => {
@@ -26,7 +29,7 @@ export const SCIMAPISection = (props: any) => {
             },
             attachToken: true,
             method: "GET",
-            url: "https://api.asgardeo.io/t/dimuthuk1/scim2/Me"
+            url: authConfig.serverOrigin + "/scim2/Me"
         };
         httpRequest(requestConfig).then((response: any) => {
             setScimUserInfo(response.data);
@@ -36,7 +39,7 @@ export const SCIMAPISection = (props: any) => {
 
         }).catch((error) => {
             console.log("request error: " + error);
-
+            history.push("/networkError");
         })
     }
 
@@ -47,7 +50,7 @@ export const SCIMAPISection = (props: any) => {
                 "Content-Type": "application/scim+json"
             },
             method: "PATCH",
-            url: "https://api.asgardeo.io/t/dimuthuk1/scim2/Me",
+            url: authConfig.serverOrigin + "/scim2/Me",
             data: {
                 "Operations": [
                     {
@@ -79,7 +82,7 @@ export const SCIMAPISection = (props: any) => {
 
         }).catch((error) => {
             console.log("request error: " + error);
-
+            history.push("/networkError");
         })
 
     }
