@@ -3,34 +3,16 @@ import { useAuthContext, HttpRequestConfig } from "@asgardeo/auth-react";
 import ReactJson from "react-json-view";
 
 export const SCIMAPISection = (props: any) => {
-    const { state, getBasicUserInfo, getIDToken, getDecodedIDToken, httpRequest } = useAuthContext();
-    const [authenticateState, setAuthenticateState] = useState<any>(null);
+    const { state, httpRequest } = useAuthContext();
     const [name, setName] = useState<string>("");
     const [scimUserInfo, setScimUserInfo] = useState<any>({});
-    const [country,setCountry] = useState<string >("");
+    const [country, setCountry] = useState<string>("");
     const [dob, setDateOfBirth] = useState<string>("");
 
 
     useEffect(() => {
         if (state?.isAuthenticated) {
-            const getData = async () => {
-                const basicUserInfo = await getBasicUserInfo();
-                const idToken = await getIDToken();
-                const decodedIDToken = await getDecodedIDToken();
-
-                const authState: any = {
-                    authenticateResponse: basicUserInfo,
-                    idToken: idToken.split("."),
-                    decodedIdTokenHeader: JSON.parse(atob(idToken.split(".")[0])),
-                    decodedIDTokenPayload: decodedIDToken
-                };
-
-                setAuthenticateState(authState);
-            };
             sendRequest();
-            //sendPatchRequest();
-
-            getData();
         }
     }, [state.isAuthenticated]);
 
@@ -46,7 +28,7 @@ export const SCIMAPISection = (props: any) => {
             method: "GET",
             url: "https://api.asgardeo.io/t/dimuthuk1/scim2/Me"
         };
-        httpRequest(requestConfig).then((response:any) => {
+        httpRequest(requestConfig).then((response: any) => {
             setScimUserInfo(response.data);
             setName(response.data.name.givenName);
             setCountry(response.data["urn:scim:wso2:schema"]["country"]);
@@ -81,7 +63,7 @@ export const SCIMAPISection = (props: any) => {
                         "value": {
                             "urn:scim:wso2:schema": {
                                 "country": country,
-                                "dateOfBirth":dob,
+                                "dateOfBirth": dob,
                             }
                         }
                     },
@@ -112,7 +94,7 @@ export const SCIMAPISection = (props: any) => {
             <div className='container'>
                 <div className='col-md-10 col-md-offset-1 section-title'>
                     <h2>React-Asgardeo Single Page Application</h2>
-                    <h4>Authentication Response</h4>
+                    <h4>SCIM API</h4>
                 </div>
                 <div className='row row-center'>
                     <form onSubmit={handleSubmit}>
@@ -122,39 +104,27 @@ export const SCIMAPISection = (props: any) => {
                                 onChange={(e) => setName(e.target.value)}
                                 value={name} type="text" name="name" />
                         </label>
-                        <br/>
+                        <br />
                         <label>
                             Change Country:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <input
                                 onChange={(e) => setCountry(e.target.value)}
                                 value={country} type="text" name="country" />
                         </label>
-                        <br/>
+                        <br />
                         <label>
                             Change Date Of Birth:&nbsp;&nbsp;
                             <input
                                 onChange={(e) => setDateOfBirth(e.target.value)}
                                 value={dob} type="text" name="dob" />
                         </label>
-                        <br/>
+                        <br />
                         <input type="submit" value="Submit" />
                     </form>
                     <div className='col-xs-12 col-md-12 json'>
                         {' '}
                         <ReactJson
                             src={scimUserInfo}
-                            name={null}
-                            enableClipboard={false}
-                            displayObjectSize={false}
-                            displayDataTypes={false}
-                            iconStyle="square"
-                            theme="monokai"
-                        />
-                    </div>
-                    <div className='col-xs-12 col-md-12 json'>
-                        {' '}
-                        <ReactJson
-                            src={authenticateState?.authenticateResponse}
                             name={null}
                             enableClipboard={false}
                             displayObjectSize={false}

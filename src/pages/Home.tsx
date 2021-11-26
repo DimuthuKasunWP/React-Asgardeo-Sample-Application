@@ -6,6 +6,7 @@ import authConfig from "../config.json";
 import { useAuthContext } from "@asgardeo/auth-react";
 import { SecondTopSection } from "../components/second-top";
 import { SCIMAPISection } from "../components/SCIMApiSample";
+import { SessionManagementAPISection } from "../components/sessionManagementAPISample";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -19,28 +20,29 @@ const Home = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (state?.isAuthenticated) {
-      history.push("/home");
-    } 
+    if (!state?.isAuthenticated) {
+      history.push("/");
+    }
   }, [state.isAuthenticated, history]);
 
   return (
     <div>
-      { configurationData.clientID === "" ?
-          <ErrorPage />
-          :
-          <div>
-            <SCIMAPISection  />
-            <SecondTopSection  />
-            <div className="logout-btn" style={{background:"white",height:"100px"}}>
+      {configurationData.clientID === "" ?
+        <ErrorPage />
+        :
+        <div>
+          <SCIMAPISection />
+          <SessionManagementAPISection />
+          <SecondTopSection />
+          <div className="logout-btn" style={{ background: "white", height: "100px" }}>
             <button
-                  onClick={ () => signOut() }
-                  className='btn btn-custom btn-lg'
-                >
-                  Logout
-                </button>{' '}
-            </div>
+              onClick={() => signOut()}
+              className='btn btn-custom btn-lg'
+            >
+              Logout
+            </button>{' '}
           </div>
+        </div>
       }
     </div>
   );
