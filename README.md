@@ -11,7 +11,7 @@ You will need to have <a href="https://nodejs.org/">Node JS</a> installed on you
 After cloning the files, you will have to run ```yarn``` followed by ```yarn start``` in the CLI or ```npm install``` followed by ```npm start```
 
 ### 3. Change Running Port
-Default Running script ```npm start ``` will be execute as ```PORT=5000 react-script start ``` as mentioned in the package.json file. This command will work Linux and Mac os.
+Default Running script ```npm start ``` will be execute as ```react-script start ``` as mentioned in the package.json file. This command will work Linux and Mac os.
 
 ### 4. Add your own data 
 Change the data in the ```data.json``` file as well as add any images to ```public/img/```
