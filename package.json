@@ -2,6 +2,7 @@
     "name": "sample-react-application",
     "private": true,
     "dependencies": {
+        "@asgardeo/auth-react": "^0.2.10",
         "@testing-library/jest-dom": "^5.15.0",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
